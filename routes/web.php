@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/about', function () {
@@ -37,13 +38,14 @@ Route::get('/matakuliah', function () {
     return 'menampilkan data matakuliah';
 });
 
-Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+Route::get('/matakuliah', [MatakuliahController::class, 'index'])->name('matakuliah');
 
 Route::get('/matakuliah/show/{kode?}', [MatakuliahController::class, 'show']);
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::post('question/store', [QuestionController::class, 'store'])
 		->name('question.store');
 
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

@@ -1,0 +1,13 @@
+.navbar-logo{
+    height: 40px;
+    weight: auto;
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/MyCustomFont.ttf');
+}
+
+.font-custom{
+    font-family: 'MyCustomFont';
+}

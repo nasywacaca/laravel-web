@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Halaman Utama - Selamat Datang!</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
 
     {{-- Bootstrap 5 CSS dari CDN untuk styling --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -48,10 +49,12 @@
         {{-- Hero Section --}}
         <div class="p-5 mb-4 bg-light rounded-3 text-center">
             <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Heroku
+                <h1 class="display-5 fw-bold ">dede muti
                     <p class="fs-4 col-md-8 mx-auto"></p>
             </div>
         </div>
+
+
 
         {{-- Features Section --}}
         <div class="row text-center">
@@ -61,9 +64,9 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Desain Modern</h5>
-                        <p class="card-text">Dibangun dengan Bootstrap 5 untuk memastikan tampilan yang bersih dan
-                            responsif di semua perangkat.</p>
+                        <h5 class="card-title font-custom">ES KRIM</h5>
+                        <p class="card-text font-custom">ES KRIM ENAK NO DEBAT.</p>
+                         <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" width="400" height="395">
                     </div>
                 </div>
             </div>
@@ -73,7 +76,22 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Form Pertanyaan</h5>
+                            <h5 class="card-title font-custom">Form Pertanyaan</h5>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (session('info'))
+                                <div class="alert alert-info">
+                                    {!! session('info') !!}
+                                </div>
+                            @endif
                             <form action="{{ route('question.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
@@ -87,7 +105,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                                    <textarea name="pernyataan"class="form-control" rows="4"></textarea>
+                                    <textarea name="pertanyaan" class="form-control" rows="4"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
                             </form>
@@ -100,9 +118,9 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Mudah Dikustomisasi</h5>
-                        <p class="card-text">Kode yang rapi dan terstruktur, memudahkan Anda untuk mengubah konten
-                            sesuai kebutuhan proyek.</p>
+                        <h5 class="card-title font-custom">COKLAT</h5>
+                        <p class="card-text font-custom">COKLAT ENAK NO DEBAT.</p>
+                            <img src="{{ asset('assets/images/coklat.png') }}" alt="Logo" width="300" height="300">
                     </div>
                 </div>
             </div>
